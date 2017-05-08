@@ -1,0 +1,29 @@
+.top-toolbar {
+  background-color: #1E8BC3;
+  z-index: 1;
+  position: relative;
+}
+
+.toolbar-header-text-container {
+  padding-top: 50px;
+}
+
+.bottom-div {
+  z-index: 2;
+  position: relative;
+  margin-top: -100px;
+  margin-right: 20px;
+}
+
+.component-header-text-div {
+  padding: 20px;
+}
+
+.help-panel {
+  margin-top: 110px;
+  margin-left : 40px;
+  margin-right: 5px;
+}
+
+/*Styles for Menu Group Detailed*/
+

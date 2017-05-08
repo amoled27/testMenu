@@ -1,0 +1,173 @@
+<div class="md-content" flex md-scroll-y>
+
+
+  <div layout="column" layout-align="start stretch">
+
+
+    <md-toolbar class="top-toolbar">
+
+      <md-toolbar-row></md-toolbar-row>
+
+      <div class="toolbar-header-text-container">
+        <div class="md-display-1 tc-grey-50">Menu Add</div>
+        <div class="md-subhead tc-grey-50">Bacon ipsum dolor amet salami jerky sirloin, picanha short ribs pork chop leberkas pig shankle.</div>
+
+
+      </div>
+      <md-toolbar-row></md-toolbar-row>
+    </md-toolbar>
+
+
+
+    <div flex class="bottom-div">
+      <div layout="row">
+
+        <div flex="25">
+
+          <div layout="column" layout-align="start stretch" class="help-panel">
+            <h3>
+              <md-icon>format_align_left</md-icon>
+              Help
+            </h3>
+            <p>An overview of basic form styles and elements.</p>
+
+            <md-list>
+              <md-list-item> Action 1</md-list-item>
+              <md-divider></md-divider>
+
+            </md-list>
+
+
+          </div>
+
+
+        </div>
+
+        <div flex="75">
+          <md-card >
+
+
+            <md-card-title>Add a New Menu</md-card-title>
+            <md-card-subtitle>Bacon ipsum dolor amet salami jerky sirloin, picanha short ribs pork chop leberkas pig shankle.</md-card-subtitle>
+            <md-divider></md-divider>
+
+            <md-card-content>
+
+
+              <form [formGroup]="addMenuForm" novalidate (ngSubmit)="save(addMenuForm.value, addMenuForm.valid)">
+
+                <div layout="row" layout-margin>
+                  <md-input-container flex>
+                    <input mdInput flex placeholder="Menu Name" type="text" maxlength="30" name="menu_name"
+                           formControlName="menu_name"/>
+
+
+                    <md-hint align="start">
+                      <span
+                        *ngIf="addMenuForm.get('menu_name').touched && addMenuForm.get('menu_name').hasError('required')"
+                        class="tc-red-600">Name is required</span>
+
+                      <span
+                        *ngIf="addMenuForm.get('menu_name').touched && addMenuForm.get('menu_name').hasError('minlength')"
+                        class="tc-red-600">Minimum of 5 characters</span>
+
+                    </md-hint>
+
+                  </md-input-container>
+
+
+                </div>
+
+
+                <div layout="row" layout-margin>
+                  <md-input-container flex>
+
+                    <input mdInput flex placeholder="Menu Description" type="text" maxlength="30"
+                           name="menu_description"
+                           formControlName="menu_description"/>
+
+
+                    <md-hint align="start">
+                      <span
+                        *ngIf="addMenuForm.get('menu_description').touched && addMenuForm.get('menu_description').hasError('required')"
+                        class="tc-red-600">Name is required</span>
+
+                      <span
+                        *ngIf="addMenuForm.get('menu_description').touched && addMenuForm.get('menu_description').hasError('minlength')"
+                        class="tc-red-600">Minimum of 10 characters</span>
+
+                    </md-hint>
+
+                  </md-input-container>
+
+
+                </div>
+
+
+                <div layout="row" layout-margin>
+                  <md-input-container flex>
+                    <input mdInput flex placeholder="Menu Note" type="text" maxlength="30" name="menu_note"
+                           formControlName="menu_note"/>
+
+
+                    <md-hint align="start">
+                      <span
+                        *ngIf="addMenuForm.get('menu_note').touched && addMenuForm.get('menu_note').hasError('required')"
+                        class="tc-red-600">Name is required</span>
+
+                      <span
+                        *ngIf="addMenuForm.get('menu_note').touched && addMenuForm.get('menu_note').hasError('minlength')"
+                        class="tc-red-600">Minimum of 10 characters</span>
+
+                    </md-hint>
+
+                  </md-input-container>
+
+
+                </div>
+
+                <div layout="row" layout-margin>
+
+                  <md-slide-toggle type="checkbox" color="accent" name="enabled"
+                                   formControlName="enabled" layout-margin>
+                    Menu Status
+                  </md-slide-toggle>
+
+                </div>
+              </form>
+
+
+            </md-card-content>
+
+            <md-divider></md-divider>
+
+            <md-card-actions>
+
+              <button md-raised-button type="submit" color="primary"
+                      (click)="save(addMenuForm.value, addMenuForm.valid)"
+                      [disabled]="!addMenuForm.valid">
+                SAVE MENU
+              </button>
+
+
+              <button md-button (click)="addMenuForm.reset()">RESET</button>
+
+              <button md-button (click)="goback()">BACK</button>
+
+            </md-card-actions>
+
+          </md-card>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+

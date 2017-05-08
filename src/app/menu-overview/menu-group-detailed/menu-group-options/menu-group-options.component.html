@@ -1,0 +1,86 @@
+<div class="md-content" flex md-scroll-y class="content-menu-group-detailed-children">
+
+  <div flex>
+    <div layout="row">
+
+      <div flex="25">
+
+
+        <div layout="column" layout-align="start stretch" class="action-button">
+          <button md-raised-button color="primary" (click)="addMenuGroupOptionToMenuGroupRouter()">ADD OPTION</button>
+
+        </div>
+
+
+        <div layout="column" layout-align="start stretch" class="help-panel-menu-group-detailed-children">
+          <h3>
+            <md-icon>format_align_left</md-icon>
+            Help
+          </h3>
+          <p>An overview of basic form styles and elements.</p>
+
+          <md-list>
+            <md-list-item> Action 1</md-list-item>
+            <md-divider></md-divider>
+
+          </md-list>
+
+
+        </div>
+
+
+      </div>
+
+      <div flex="75">
+
+
+        <md-card>
+
+          <md-card-title>List of Menu Group Options</md-card-title>
+          <md-card-subtitle>Bacon ipsum dolor amet salami jerky sirloin, picanha short ribs pork chop leberkas pig
+            shankle.
+          </md-card-subtitle>
+          <md-divider></md-divider>
+          <md-card-content>
+
+            <!-- list with Icons-->
+
+            <div layout="column" layout-align="start stretch">
+
+
+              <md-nav-list>
+
+                <!--<template let-item let-last="last" ngFor [ngForOf]="data">-->
+                <!--<a md-list-item [routerLink]="['./dishdetailmini']"> {{item.item}}  </a>-->
+                <!--<md-divider *ngIf="!last"></md-divider>-->
+
+                <template let-item let-last="last" ngFor [ngForOf]="data">
+
+                  <a md-list-item layout-align="row" [routerLink]="['./dishdetailmini']" (click)="doRoute(item.sku)">
+                    <md-icon md-list-icon>account_box</md-icon>
+                    <h3 md-line> {{item.item}} </h3>
+                    <p md-line> {{item.item}} </p>
+                  </a>
+
+
+                  <md-divider *ngIf="!last" md-inset></md-divider>
+                </template>
+              </md-nav-list>
+
+
+            </div>
+
+          </md-card-content>
+
+
+        </md-card>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>

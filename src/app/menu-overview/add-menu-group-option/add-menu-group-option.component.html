@@ -1,0 +1,161 @@
+<div class="md-content" flex md-scroll-y>
+
+
+  <div layout="column" layout-align="start stretch">
+
+
+    <md-toolbar class="top-toolbar">
+
+      <md-toolbar-row></md-toolbar-row>
+
+      <div class="toolbar-header-text-container">
+        <div class="md-display-1 tc-grey-50">Dish Add</div>
+        <div class="md-subhead tc-grey-50">Bacon ipsum dolor amet salami jerky sirloin, picanha short ribs pork chop
+          leberkas pig shankle.
+        </div>
+
+
+      </div>
+      <md-toolbar-row></md-toolbar-row>
+    </md-toolbar>
+
+
+    <div flex class="bottom-div">
+      <div layout="row">
+
+        <div flex="25">
+
+          <div layout="column" layout-align="start stretch" class="help-panel">
+            <h3>
+              <md-icon>format_align_left</md-icon>
+              Help
+            </h3>
+            <p>An overview of basic form styles and elements.</p>
+
+            <md-list>
+              <md-list-item> Action 1</md-list-item>
+              <md-divider></md-divider>
+
+            </md-list>
+
+
+          </div>
+
+
+        </div>
+
+        <div flex="75">
+          <md-card>
+
+
+            <md-card-title>Add a New Dish</md-card-title>
+            <md-card-subtitle>Bacon ipsum dolor amet salami jerky sirloin, picanha short ribs pork chop leberkas pig
+              shankle.
+            </md-card-subtitle>
+            <md-divider></md-divider>
+
+            <md-card-content>
+
+
+              <form [formGroup]="addMenuGroupOption" novalidate (ngSubmit)="save(addMenuGroupOption.value, addMenuGroupOption.valid)">
+
+                <div layout="row" layout-margin>
+                  <md-input-container flex>
+                    <input mdInput flex placeholder="Menu Group Option Name" type="text" maxlength="100" name="menu_group_option_name"
+                           formControlName="menu_group_option_name"/>
+
+
+                    <md-hint align="start">
+                      <span
+                        *ngIf="addMenuGroupOption.get('menu_group_option_name').touched && addMenuGroupOption.get('menu_group_option_name').hasError('required')"
+                        class="tc-red-600">Menu Group Option Name is required</span>
+
+                      <span
+                        *ngIf="addMenuGroupOption.get('menu_group_option_name').touched && addMenuGroupOption.get('menu_group_option_name').hasError('minlength')"
+                        class="tc-red-600">Minimum of 5 characters</span>
+
+                    </md-hint>
+
+                  </md-input-container>
+
+
+                </div>
+
+
+                <div layout="row" layout-margin>
+                  <md-input-container flex>
+
+                    <input mdInput flex placeholder="Menu Group Option Info" type="text" maxlength="100"
+                           name="menu_group_option_info"
+                           formControlName="menu_group_option_info"/>
+
+
+                    <md-hint align="start">
+                      <span
+                        *ngIf="addMenuGroupOption.get('menu_group_option_info').touched && addMenuGroupOption.get('menu_group_option_info').hasError('required')"
+                        class="tc-red-600">MMenu Group Option Info is required</span>
+
+                      <span
+                        *ngIf="addMenuGroupOption.get('menu_group_option_info').touched && addMenuGroupOption.get('menu_group_option_info').hasError('minlength')"
+                        class="tc-red-600">Minimum of 10 characters</span>
+
+                    </md-hint>
+
+                  </md-input-container>
+
+
+                </div>
+
+
+
+                <div layout="column" layout-margin>
+
+                  <h3 class="md-subhead">Noto is the standard typeface for all languages on Chrome and Android for all languages not covered by Roboto.</h3>
+
+                  <md-slide-toggle type="checkbox" color="accent" name="enabled"
+                                   formControlName="enabled">
+                    Item Status
+                  </md-slide-toggle>
+
+                </div>
+
+
+
+              </form>
+
+
+            </md-card-content>
+
+            <md-divider></md-divider>
+
+            <md-card-actions>
+
+              <button md-raised-button type="submit" color="primary"
+                      (click)="save(addMenuGroupOption.value, addMenuGroupOption.valid)"
+                      [disabled]="!addMenuGroupOption.valid">
+                SAVE MENU
+              </button>
+
+
+              <button md-button (click)="addMenuGroupOption.reset()">RESET</button>
+
+              <button md-button (click)="goback()">BACK</button>
+
+
+            </md-card-actions>
+
+          </md-card>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+

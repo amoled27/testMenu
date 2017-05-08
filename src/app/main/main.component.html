@@ -1,0 +1,8 @@
+<td-layout #layout  sidenavTitle="Quickstart" >
+    <md-nav-list menu-items>
+        <template let-item let-last="last" ngFor [ngForOf]="routes">
+            <a md-list-item [routerLink]="[item.route]" (click)="layout.close()">{{item.title}}</a>
+        </template>
+    </md-nav-list>
+    <router-outlet></router-outlet>
+</td-layout>

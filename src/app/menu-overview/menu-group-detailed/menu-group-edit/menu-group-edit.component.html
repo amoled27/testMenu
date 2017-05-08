@@ -1,0 +1,150 @@
+<div class="md-content" flex md-scroll-y class="content-menu-group-detailed-children">
+
+  <div flex>
+    <div layout="row">
+
+      <div flex="25">
+
+
+        <div layout="column" layout-align="start stretch" class="help-panel-menu-group-detailed-children">
+          <h3>
+            <md-icon>format_align_left</md-icon>
+            Help
+          </h3>
+          <p>An overview of basic form styles and elements.</p>
+
+          <md-list>
+            <md-list-item> Action 1</md-list-item>
+            <md-divider></md-divider>
+
+          </md-list>
+
+
+        </div>
+
+
+      </div>
+
+      <div flex="75">
+
+        <md-card >
+
+
+          <md-card-title>Edit Menu Group</md-card-title>
+          <md-card-subtitle>Bacon ipsum dolor amet salami jerky sirloin, picanha short ribs pork chop leberkas pig shankle.</md-card-subtitle>
+          <md-divider></md-divider>
+
+          <md-card-content>
+
+
+            <form [formGroup]="editMenuGroupForm" novalidate (ngSubmit)="save(editMenuGroupForm.value, editMenuGroupForm.valid)">
+
+              <div layout="row" layout-margin>
+                <md-input-container flex>
+                  <input mdInput flex placeholder="Menu Group Name" type="text" maxlength="30" name="menu_group_name"
+                         formControlName="menu_group_name"/>
+
+
+                  <md-hint align="start">
+                      <span
+                        *ngIf="editMenuGroupForm.get('menu_group_name').touched && editMenuGroupForm.get('menu_group_name').hasError('required')"
+                        class="tc-red-600">Name is required</span>
+
+                    <span
+                      *ngIf="editMenuGroupForm.get('menu_group_name').touched && editMenuGroupForm.get('menu_group_name').hasError('minlength')"
+                      class="tc-red-600">Minimum of 5 characters</span>
+
+                  </md-hint>
+
+                </md-input-container>
+
+
+              </div>
+
+
+              <div layout="row" layout-margin>
+                <md-input-container flex>
+
+                  <input mdInput flex placeholder="Menu Group Description" type="text" maxlength="30"
+                         name="menu_group_description"
+                         formControlName="menu_group_description"/>
+
+
+                  <md-hint align="start">
+                      <span
+                        *ngIf="editMenuGroupForm.get('menu_group_description').touched && editMenuGroupForm.get('menu_group_description').hasError('required')"
+                        class="tc-red-600">Name is required</span>
+
+                    <span
+                      *ngIf="editMenuGroupForm.get('menu_group_description').touched && editMenuGroupForm.get('menu_group_description').hasError('minlength')"
+                      class="tc-red-600">Minimum of 10 characters</span>
+
+                  </md-hint>
+
+                </md-input-container>
+
+
+              </div>
+
+
+              <div layout="row" layout-margin>
+                <md-input-container flex>
+                  <input mdInput flex placeholder="Menu Group Note" type="text" maxlength="30" name="menu_group_note"
+                         formControlName="menu_group_note"/>
+
+
+                  <md-hint align="start">
+                      <span
+                        *ngIf="editMenuGroupForm.get('menu_group_note').touched && editMenuGroupForm.get('menu_group_note').hasError('required')"
+                        class="tc-red-600">Name is required</span>
+
+                    <span
+                      *ngIf="editMenuGroupForm.get('menu_group_note').touched && editMenuGroupForm.get('menu_group_note').hasError('minlength')"
+                      class="tc-red-600">Minimum of 10 characters</span>
+
+                  </md-hint>
+
+                </md-input-container>
+
+
+              </div>
+
+              <div layout="row" layout-margin>
+
+                <md-slide-toggle type="checkbox" color="accent" name="enabled"
+                                 formControlName="enabled" layout-margin>
+                  Menu Status
+                </md-slide-toggle>
+
+              </div>
+            </form>
+
+
+          </md-card-content>
+
+          <md-divider></md-divider>
+
+          <md-card-actions>
+
+            <button md-raised-button type="submit" color="primary"
+                    (click)="save(editMenuGroupForm.value, editMenuGroupForm.valid)">
+              SAVE MENU
+            </button>
+
+
+            <button md-button (click)="editMenuGroupForm.reset()">RESET</button>
+
+
+          </md-card-actions>
+
+        </md-card>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,65 @@
+<div class="md-content" flex md-scroll-y>
+
+
+  <div layout="column" layout-align="start stretch">
+
+    <md-toolbar class="top-toolbar">
+
+      <md-toolbar-row>
+
+
+      </md-toolbar-row>
+
+
+      <div layout="row" layout-align="space-between center" flex>
+
+        <div class="toolbar-header-text-container">
+          <div class="md-display-1 tc-grey-50">Menu Group management</div>
+          <div class="md-subhead tc-grey-50">Bacon ipsum dolor amet salami jerky sirloin, picanha short ribs pork chop
+            leberkas pig shankle.
+          </div>
+
+          <button md-raised-button color="accent" (click)="goback()">BACK</button>
+
+        </div>
+        <div>
+          <button md-raised-button color="warn" (click)="deleteMenuGroup()">DELETE MENU GROUP</button>
+        </div>
+
+
+
+      </div>
+
+
+      <md-toolbar-row layout="column" layout-align="start start">
+
+
+        <md-tab-group (focusChange)="changeTab($event)" [selectedIndex]="0" color="accent">
+
+
+          <md-tab>
+            <template md-tab-label class="md-title tc-grey-50">Menu Group Dishes</template>
+          </md-tab>
+
+
+          <md-tab>
+            <template md-tab-label class="md-title tc-grey-50">Menu Group Options</template>
+          </md-tab>
+
+
+          <md-tab>
+            <template md-tab-label class="md-title tc-grey-50">Menu Group Edit</template>
+          </md-tab>
+
+
+        </md-tab-group>
+      </md-toolbar-row>
+    </md-toolbar>
+
+
+    <router-outlet></router-outlet>
+
+  </div>
+
+
+</div>

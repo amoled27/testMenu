@@ -1,0 +1,103 @@
+<div class="md-content" flex md-scroll-y>
+
+
+  <div layout="column" layout-align="start stretch">
+
+    <md-toolbar class="top-toolbar">
+
+      <md-toolbar-row></md-toolbar-row>
+
+      <div class="toolbar-header-text-container">
+        <div class="md-display-1 tc-grey-50">Menu management</div>
+        <div class="md-subhead tc-grey-50">Bacon ipsum dolor amet salami jerky sirloin, picanha short ribs pork chop leberkas pig shankles</div>
+
+      </div>
+      <md-toolbar-row></md-toolbar-row>
+    </md-toolbar>
+
+
+    <div flex class="bottom-div">
+      <div layout="row">
+
+        <div flex="25">
+
+          <div layout="column" layout-align="start stretch" class="help-panel">
+            <h3>
+              <md-icon>format_align_left</md-icon>
+              Help
+            </h3>
+            <p>An overview of basic form styles and elements.</p>
+
+            <md-list>
+              <md-list-item> Action 1</md-list-item>
+              <md-divider></md-divider>
+
+            </md-list>
+
+
+          </div>
+
+
+        </div>
+
+        <div flex="75">
+          <md-card>
+            <md-card-title>List of Current Menus</md-card-title>
+            <md-card-subtitle>Bacon ipsum dolor amet salami jerky sirloin, picanha short ribs pork chop leberkas pig
+              shankle.
+            </md-card-subtitle>
+            <md-divider></md-divider>
+            <md-card-content>
+
+
+              <table td-data-table>
+
+
+                <th td-data-table-column
+                    *ngFor="let column of columns"
+                    [numeric]="column.numeric">
+                  {{column.label}}
+                </th>
+
+                <th td-data-table-column>
+                  View
+                </th>
+
+                <tr td-data-table-row *ngFor="let menu of menus">
+
+
+                  <td td-data-table-cell>
+                    {{menu.menu_name}}
+                  </td>
+
+                  <td td-data-table-cell (click)="openPrompt(menu.id)">
+                    <button md-button [class.md-accent]>{{'View  Menu'}}</button>
+                  </td>
+
+                </tr>
+              </table>
+
+
+
+
+            </md-card-content>
+            <md-divider></md-divider>
+
+            <md-card-actions>
+              <button md-raised-button color="primary" [routerLink]="['addmenu']">ADD MENU</button>
+              <!--<button md-button>Cancel</button>-->
+            </md-card-actions>
+
+          </md-card>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>

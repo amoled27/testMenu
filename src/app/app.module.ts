@@ -44,6 +44,7 @@ import { MenuGroupDishDetailComponent } from './menu-overview/menu-group-dish-de
 import { MenuGroupOptionDetailComponent } from './menu-overview/menu-group-option-detail/menu-group-option-detail.component';
 import { AddMenuGroupOptionComponent } from './menu-overview/add-menu-group-option/add-menu-group-option.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { AddMenuGroupOptionComponent } from './menu-overview/add-menu-group-opti
     MaterialModule,
     CovalentCoreModule.forRoot(),
     appRoutes,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule
 
   ],
   providers: [

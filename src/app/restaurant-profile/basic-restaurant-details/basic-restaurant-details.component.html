@@ -9,8 +9,7 @@
 
       <div class="toolbar-header-text-container">
         <div class="md-display-1 tc-grey-50">Basic Profile management</div>
-        <div class="md-subhead tc-grey-50">Bacon ipsum dolor amet salami jerky sirloin, picanha short ribs pork chop leberkas pig shankles</div>
-
+        <div class="md-subhead tc-grey-50">Enter in a few basic details of your restaurant</div>
       </div>
       <md-toolbar-row></md-toolbar-row>
     </md-toolbar>
@@ -19,50 +18,183 @@
     <div flex class="bottom-div">
       <div layout="row">
 
-        <div flex="25">
-
-          <div layout="column" layout-align="start stretch" class="help-panel">
-            <h3>
-              <md-icon>format_align_left</md-icon>
-              Help
-            </h3>
-            <p>An overview of basic form styles and elements.</p>
-
-            <md-list>
-              <md-list-item> Action 1</md-list-item>
-              <md-divider></md-divider>
-
-            </md-list>
-
-
-          </div>
-
+        <div flex="10">
 
         </div>
-
-        <div flex="75">
+        <!--card-->
+        <div flex="90">
           <md-card>
-            <md-card-title>Restaurant Profile</md-card-title>
-            <md-card-subtitle>Bacon ipsum dolor amet salami jerky sirloin, picanha short ribs pork chop leberkas pig
-              shankle.
-            </md-card-subtitle>
+            <md-card-title>{{AddRestaurantProfile.value.name}}</md-card-title>
+
             <md-divider></md-divider>
             <md-card-content>
 
+  <form [formGroup]="AddRestaurantProfile" novalidate (ngSubmit)="save(AddRestaurantProfile.value, AddRestaurantProfile.valid)">
 
-            </md-card-content>
+      <div layout="row" layout-margin>
+      <md-input-container flex>
+              <input mdInput flex placeholder="Restaurant Name" type="text" maxlength="100" name="name"
+                           formControlName="name"/>
+                    <md-hint align="start">
+                      <span
+                        *ngIf="AddRestaurantProfile.get('name').touched && AddRestaurantProfile.get('name').hasError('required')"
+                        class="tc-red-600">Restaurant Name is required</span>
+
+                      <span
+                        *ngIf="AddRestaurantProfile.get('name').touched && AddRestaurantProfile.get('name').hasError('minlength')"
+                        class="tc-red-600">Minimum of 5 characters</span>
+
+                    </md-hint>
+      </md-input-container>
+      </div>
 
 
-          </md-card>
+      <div layout="row" layout-margin>
+      <md-input-container flex>
 
+                <input mdInput flex placeholder="Brief Description/Tagline" type="text" maxlength="100"
+                           name="brief_description"
+                           formControlName="brief_description"/>
+
+
+                    <md-hint align="start">
+                  <!--    <span
+                        *ngIf="AddRestaurantProfile.get('brief_description').touched && AddRestaurantProfile.get('brief_description').hasError('required')"
+                        class="tc-red-600">Brief Description is required</span>-->
+
+                      <span
+                        *ngIf="AddRestaurantProfile.get('brief_description').touched && AddRestaurantProfile.get('brief_description').hasError('minlength')"
+                        class="tc-red-600">Minimum of 10 characters</span>
+                    </md-hint>
+      </md-input-container>
+      </div>
+
+
+      <div layout="row" layout-margin>
+      <md-input-container flex>
+
+              <input mdInput flex placeholder="Full Descrption" type="text" maxlength="100"
+                           name="full_description"
+                           formControlName="full_description"/>
+
+
+                      <md-hint align="start">
+                        <span
+                          *ngIf="AddRestaurantProfile.get('full_description').touched && AddRestaurantProfile.get('full_description').hasError('minlength')"
+                          class="tc-red-600">Minimum of 20 characters</span>
+                      </md-hint>
+
+      </md-input-container>
+      </div>
+
+
+      <div layout="column" layout-margin>
+        <md-input-container flex>
+        <input mdInput flex placeholder="Business Type" type="text" maxlength="100" name="business_type"
+                     formControlName="business_type"/>
+                     <md-hint align="start">
+                       <span
+                         *ngIf="AddRestaurantProfile.get('business_type').touched && AddRestaurantProfile.get('business_type').hasError('required')"
+                         class="tc-red-600">Business type is required</span>
+                      </md-hint>
+      </md-input-container>
+    </div>
+
+    <div layout="column" layout-margin>
+      <md-input-container flex>
+      <input mdInput flex placeholder="Establishment" type="text" maxlength="100" name="establishment_type"
+                   formControlName="establishment_type"/>
+                   <md-hint align="start">
+                     <span
+                       *ngIf="AddRestaurantProfile.get('establishment_type').touched && AddRestaurantProfile.get('establishment_type').hasError('required')"
+                       class="tc-red-600">Establishment type is required</span>
+                    </md-hint>
+    </md-input-container>
+  </div>
+
+
+  <div layout="column" layout-margin>
+    <md-input-container flex>
+    <input mdInput flex placeholder="Average Cost for two" type="number" maxlength="100" name="average_cost_for_two"
+                 formControlName="average_cost_for_two"/>
+                 <md-hint align="start">
+                   <span
+                     *ngIf="AddRestaurantProfile.get('average_cost_for_two').touched && AddRestaurantProfile.get('average_cost_for_two').hasError('required')"
+                     class="tc-red-600">Average cost is required</span>
+                  </md-hint>
+  </md-input-container>
+</div>
+
+<md-slider min="1" max="5" thumbLabel="Price Range" tickInterval="1"
+           formControlName="price_range">
+</md-slider>
+
+<div layout="column" layout-margin>     <br>
+
+                <md-select  name="default_currency" formControlName="default_currency" placeholder="select defaul currency">
+                  <md-option value="1">Indian</md-option>
+                  <md-option value="2">U.S. Dollar</md-option>
+                  <md-option value="3">Yen</md-option>
+                </md-select>
+                <md-hint align="start">
+                  <span
+                    *ngIf="AddRestaurantProfile.get('default_currency').touched && AddRestaurantProfile.get('default_currency').hasError('required')"
+                    class="tc-red-600">Default currency is required</span>
+                 </md-hint>
+  </div>
+<br>
+
+  <div layout="row" layout-margin>
+<md-slide-toggle type="checkbox" color="accent" name="temporary_closed"
+                 formControlName="temporary_closed" layout-margin>
+Temporarily Closed
+</md-slide-toggle>
+</div>
+<!--
+<md-input-container flex>
+  <div formArrayName="amenity_types">
+    <div [formGroupName]="i">
+  <input mdInput flex placeholder="Please Enter Amenities available" formControlName="type_name" name="type_name"/>
+</div>
+</div>
+</md-input-container>
+-->
+
+
+
+
+</form>
+
+<div class="margin-20">
+     <div>AddRestaurantProfile details:-</div>
+     <pre>Is AddRestaurantProfile valid?: <br>{{AddRestaurantProfile.valid | json}}</pre>
+     <pre>Is AddRestaurantProfile submitted?: <br>{{submitted | json}}</pre>
+     <pre>AddRestaurantProfilevalue: <br>{{AddRestaurantProfile.value | json}}</pre>
+</div>
+
+
+</md-card-content>
+<md-card-actions>
+
+  <button md-raised-button type="submit" color="primary"
+          (click)="save(AddRestaurantProfile.value, AddRestaurantProfile.valid)"
+          [disabled]="!AddRestaurantProfile.valid">
+    SAVE MENU
+  </button>
+
+
+  <button md-button (click)="AddRestaurantProfile.reset()">RESET</button>
+
+  <button md-button (click)="goback()">BACK</button>
+
+
+</md-card-actions>
+</md-card>
+</div>
 
         </div>
-
       </div>
 
     </div>
 
   </div>
-
-
-</div>

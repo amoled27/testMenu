@@ -48,6 +48,3 @@ export interface RestaurantObject {
   seating_types: SeatingType[];
   menus: any[];
 }
-
-
-

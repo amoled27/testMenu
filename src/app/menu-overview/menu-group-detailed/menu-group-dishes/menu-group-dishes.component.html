@@ -46,22 +46,43 @@
             <!-- list with Icons-->
 
             <div layout="column" layout-align="start stretch">
+              <table td-data-table>
 
 
-              <md-nav-list>
+                <th td-data-table-column>
+                Name of Dish
+                </th>
 
-                <template let-item let-last="last" ngFor [ngForOf]="data">
+                <th td-data-table-column>
+                  View
+                </th>
+
+                <tr td-data-table-row *ngFor="let MenuGroupItem of MenuGroupItem">
+
+
+                  <td td-data-table-cell> {{MenuGroupItem.menu_item_name}}
+                  </td>
+
+                  <td td-data-table-cell (click)="openPrompt(MenuGroupItem.id)">
+                    <button md-button [class.md-accent]>{{'View  Menu'}}</button>
+                  </td>
+
+                </tr>
+              </table>
+              <!-- <md-nav-list>
+
+                <template let-item let-last="last" *ngFor="let MenuGroupItem of MenuGroupItems">
 
                   <a md-list-item layout-align="row" [routerLink]="['./dishdetailmini']" (click)="doRoute(item.sku)">
                     <md-icon md-list-icon>account_box</md-icon>
-                    <h3 md-line> {{item.item}} </h3>
+                    <h3 md-line> {{MenuGroupItem}} </h3>
                     <p md-line> {{item.item}} </p>
                   </a>
 
 
                   <md-divider *ngIf="!last" md-inset></md-divider>
                 </template>
-              </md-nav-list>
+              </md-nav-list> -->
 
 
             </div>

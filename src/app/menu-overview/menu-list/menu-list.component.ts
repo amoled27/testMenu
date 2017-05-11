@@ -21,8 +21,7 @@ export class MenuListComponent implements OnInit {
 
   ngOnInit() {
     this.loadMenus();
-
-
+ 
   }
 
   loadMenus() {

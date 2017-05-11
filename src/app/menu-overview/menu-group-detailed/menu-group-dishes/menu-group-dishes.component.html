@@ -48,20 +48,21 @@
             <div layout="column" layout-align="start stretch">
 
 
-              <md-nav-list>
 
-                <template let-item let-last="last" ngFor [ngForOf]="data">
+              <!-- <md-nav-list>
+
+                <template let-item let-last="last" *ngFor="let MenuGroupItem of MenuGroupItems">
 
                   <a md-list-item layout-align="row" [routerLink]="['./dishdetailmini']" (click)="doRoute(item.sku)">
                     <md-icon md-list-icon>account_box</md-icon>
-                    <h3 md-line> {{item.item}} </h3>
+                    <h3 md-line> {{MenuGroupItem}} </h3>
                     <p md-line> {{item.item}} </p>
                   </a>
 
 
                   <md-divider *ngIf="!last" md-inset></md-divider>
                 </template>
-              </md-nav-list>
+              </md-nav-list> -->
 
 
             </div>

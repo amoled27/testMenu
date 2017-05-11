@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {MenuService} from "../../services/menu/menu.service";
+import {MenuGroupItem} from "../../interfaces/menu";
+import {Subscription} from 'rxjs';
+import {Router,ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-menu-group-dish-detail',
@@ -7,9 +11,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuGroupDishDetailComponent implements OnInit {
 
-  constructor() { }
+  private menuGroupItemID;
+  private subscription: Subscription;
+  menuGroupItem:MenuGroupItem;
 
-  ngOnInit() {
+  constructor(private _menuService: MenuService,
+              private route: ActivatedRoute
+  ) { }
+
+  ngOnInit(){
+    //https://stackoverflow.com/questions/34906888/angular-2-access-parent-routeparams-from-child-component
+    this.subscription = this.route.parent.params.subscribe(params => {
+      this.menuGroupItemID = +params["menuGroupItemID"];
+      console.log("Received Parent menuGroupID with id : " + this.menuGroupItemID + " in MenuGroupDishesComponent")
+    });
+
+    this.getDishDetail();
+
+
+  }
+
+  getDishDetail(){
+    this._menuService.getMenuItem(this.menuGroupItemID).subscribe(
+      menuGroupItem => {
+        this.menuGroupItem = menuGroupItem;
+        console.log(menuGroupItem);
+      },
+      err => {
+        // Log errors if any
+        console.log(err);
+      }
+    )
   }
 
 }

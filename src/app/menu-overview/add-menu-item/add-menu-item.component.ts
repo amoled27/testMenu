@@ -76,6 +76,7 @@ export class AddMenuItemComponent implements OnInit {
 
         snackBarRef.afterDismissed().subscribe(() => {
           this.location.back();
+          
         });
 
       },

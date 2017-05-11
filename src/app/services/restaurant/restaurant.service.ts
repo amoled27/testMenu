@@ -11,6 +11,12 @@ export class RestaurantService {
   constructor(private _tokenService: Angular2TokenService) {
   }
 
+  AddRestaurantProfile(restaurantProfile: RestaurantObject): Observable<RestaurantObject> {
+    return this._tokenService.post('restaurants/', restaurantProfile)
+      .map(res => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error')
+      );
+  }
 
 
 

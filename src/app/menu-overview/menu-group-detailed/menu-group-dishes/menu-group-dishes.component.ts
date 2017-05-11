@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
-
-
+import {MenuService} from "../../../services/menu/menu.service";
+import{MenuGroupItem} from "../../../interfaces/menu";
 @Component({
   selector: 'app-menu-group-dishes',
   templateUrl: './menu-group-dishes.component.html',
@@ -12,7 +12,7 @@ export class MenuGroupDishesComponent implements OnInit {
 
   private subscription: Subscription;
   private menuGroupID;
-
+  MenuGroupItem:MenuGroupItem[];
 
   data: any[] = [
     { sku: '546', item: 'Dish 1', price: 32 },
@@ -22,7 +22,7 @@ export class MenuGroupDishesComponent implements OnInit {
     { sku: '141', item: 'Dish 5', price: 42 }
 
   ];
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute,private _menuService: MenuService) {
 
   }
   ngOnInit(): void {
@@ -32,8 +32,24 @@ export class MenuGroupDishesComponent implements OnInit {
       this.menuGroupID = +params["menuGroupID"];
       console.log("Received Parent menuGroupID with id : " + this.menuGroupID + " in MenuGroupDishesComponent")
     });
-  }
 
+
+    this.loadDishes()
+
+  }
+loadDishes()
+{
+  this._menuService.getListofMenuItems(this.menuGroupID).subscribe(
+    MenuGroupItem => {
+      this.MenuGroupItem = MenuGroupItem;
+      console.log(this.MenuGroupItem);
+    },
+    err => {
+      // Log errors if any
+      console.log(err);
+    }
+  );
+}
   doRoute(dishID : any){
 
 

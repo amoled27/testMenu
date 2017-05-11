@@ -46,9 +46,29 @@
             <!-- list with Icons-->
 
             <div layout="column" layout-align="start stretch">
+              <table td-data-table>
 
 
+                <th td-data-table-column>
+                Name of Dish
+                </th>
 
+                <th td-data-table-column>
+                  View
+                </th>
+
+                <tr td-data-table-row *ngFor="let MenuGroupItem of MenuGroupItem">
+
+
+                  <td td-data-table-cell> {{MenuGroupItem.menu_item_name}}
+                  </td>
+
+                  <td td-data-table-cell (click)="openPrompt(MenuGroupItem.id)">
+                    <button md-button [class.md-accent]>{{'View  Menu'}}</button>
+                  </td>
+
+                </tr>
+              </table>
               <!-- <md-nav-list>
 
                 <template let-item let-last="last" *ngFor="let MenuGroupItem of MenuGroupItems">

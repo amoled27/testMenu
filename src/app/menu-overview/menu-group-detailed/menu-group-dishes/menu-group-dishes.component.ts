@@ -14,7 +14,7 @@ export class MenuGroupDishesComponent implements OnInit {
   private menuGroupID;
   MenuGroupItem:MenuGroupItem[];
 
- 
+
   constructor(private router: Router, private route: ActivatedRoute,private _menuService: MenuService) {
 
   }
@@ -31,19 +31,18 @@ export class MenuGroupDishesComponent implements OnInit {
 
   }
   loadDishes()
-  {
-    this._menuService.getListofMenuItems(this.menuGroupID).subscribe(
-      MenuGroupItem => {
-        this.MenuGroupItem = MenuGroupItem;
-        console.log(this.MenuGroupItem);
-
-      },
-      err => {
-        // Log errors if any
-        console.log(err);
-      }
-    );
-  }
+{
+  this._menuService.getListofMenuItems(this.menuGroupID).subscribe(
+    MenuGroupItem => {
+      this.MenuGroupItem = MenuGroupItem;
+      console.log(this.MenuGroupItem);
+    },
+    err => {
+      // Log errors if any
+      console.log(err);
+    }
+  );
+}
   doRoute(dishID : any){
 
 

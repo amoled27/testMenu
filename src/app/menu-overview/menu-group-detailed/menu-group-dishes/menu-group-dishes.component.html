@@ -53,19 +53,17 @@
                 Name of Dish
                 </th>
 
-                <th td-data-table-column>
-                  View
-                </th>
+              
 
                 <tr td-data-table-row *ngFor="let MenuGroupItem of MenuGroupItem">
 
 
-                  <td td-data-table-cell> {{MenuGroupItem.menu_item_name}}
+                  <td td-data-table-cell (click)="doRoute(MenuGroupItem.id)"> {{MenuGroupItem.menu_item_name}}
                   </td>
 
-                  <td td-data-table-cell (click)="openPrompt(MenuGroupItem.id)">
+                  <!-- <td td-data-table-cell (click)="openPrompt(MenuGroupItem.id)">
                     <button md-button [class.md-accent]>{{'View  Menu'}}</button>
-                  </td>
+                  </td> -->
 
                 </tr>
               </table>
